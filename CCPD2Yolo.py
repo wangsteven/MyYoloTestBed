@@ -2,9 +2,10 @@ import re
 from pathlib import Path
 import os
 import cv2
-file_path = os.getcwd() + '/map/'  # 在当前目录下新建map文件夹，用于存储map中间结果图
-if not os.path.exists(file_path):
-    os.mkdir(file_path)
+
+#file_path = os.getcwd() + '/map/'  # 在当前目录下新建map文件夹，用于存储map中间结果图
+#if not os.path.exists(file_path):
+#    os.mkdir(file_path)
 
 import argparse
 
@@ -72,8 +73,8 @@ def get_info(im_file):
     sp = img.shape
     height = sp[0]
     width = sp[1]
-    print ('height: ', height)
-    print ('width: ', width)
+    #print ('height: ', height)
+    #print ('width: ', width)
     
     dw = 1.0 / (width  )
     dh = 1.0 / (height )
@@ -95,8 +96,8 @@ def get_info(im_file):
     width   = (int(Xmax)- int(Xmin)) 
     height  = (int(Ymax)- int(Ymin))
     
-    print ('label width: ' , (int(Xmax)- int(Xmin)))
-    print ("label  height:  ", (int(Ymax)- int(Ymin)))
+    #print ('label width: ' , (int(Xmax)- int(Xmin)))
+    #print ("label  height:  ", (int(Ymax)- int(Ymin)))
     
     normalized_cx = centerx *dw
     normalized_cy = centery *dh
@@ -187,12 +188,12 @@ def main():
         res = "1 " + str(segmentation[0]) + " " + str(segmentation[1]) + " " + str(segmentation[2]) + " " + str(segmentation[3])
       
         
-        print (os.path.basename(im_file))
+        #print (os.path.basename(im_file))
         basename = os.path.basename(im_file)
         txtname = basename.split(".")[0] + ".txt"
         outputfilepath = os.path.join (LABEL_DIR , txtname)
-        print (outputfilepath)
-        print(res)
+        #print (outputfilepath)
+        #print(res)
         
         if not os.path.exists(LABEL_DIR):
             os.makedirs(LABEL_DIR)
@@ -201,7 +202,7 @@ def main():
         f.write(res)
         f.close()
     print (image_id , ' images labeled')
-    print('end')
+    #print('end')
         
         
     
