@@ -11,3 +11,6 @@ python CCPD2Yolo.py --data .\datasets\CCPD\images\test_ccpd_base   --output .\da
 
 # Train customer data
 python train.py --img 1088 --rect --batch 64 --epochs 6 --data ccpd_ds.yaml --weights yolov5s.pt
+
+# Inference
+python detect.py --weights last.pt --img 1024 --conf 0.25 --source data/images/ --save-crop
