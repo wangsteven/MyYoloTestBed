@@ -14,3 +14,6 @@ python train.py --img 1088 --rect --batch 64 --epochs 6 --data ccpd_ds.yaml --we
 
 # Inference
 python detect.py --weights last.pt --img 1024 --conf 0.25 --source data/images/ --save-crop
+
+# Export
+python export.py --weights yolov5s.pt  --batch 1 --include torchscript --optimize --inplace
